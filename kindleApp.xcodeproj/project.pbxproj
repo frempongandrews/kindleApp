@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B810D0D51F8152A0000B7BF5 /* BookPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810D0D41F8152A0000B7BF5 /* BookPagerViewController.swift */; };
 		B8AE73A51F6D005B001328BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE73A41F6D005B001328BA /* AppDelegate.swift */; };
 		B8AE73A71F6D005B001328BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE73A61F6D005B001328BA /* ViewController.swift */; };
 		B8AE73AA1F6D005B001328BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8AE73A81F6D005B001328BA /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B810D0D41F8152A0000B7BF5 /* BookPagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookPagerViewController.swift; sourceTree = "<group>"; };
 		B8AE73A11F6D005B001328BA /* kindleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kindleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8AE73A41F6D005B001328BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8AE73A61F6D005B001328BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				B8AE73AD1F6D005B001328BA /* LaunchScreen.storyboard */,
 				B8AE73B01F6D005B001328BA /* Info.plist */,
 				B8AE73B61F6D7944001328BA /* Models.swift */,
+				B810D0D41F8152A0000B7BF5 /* BookPagerViewController.swift */,
 			);
 			path = kindleApp;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8AE73B71F6D7944001328BA /* Models.swift in Sources */,
+				B810D0D51F8152A0000B7BF5 /* BookPagerViewController.swift in Sources */,
 				B8AE73A71F6D005B001328BA /* ViewController.swift in Sources */,
 				B8AE73A51F6D005B001328BA /* AppDelegate.swift in Sources */,
 			);
@@ -305,6 +309,7 @@
 				B8AE73B51F6D005B001328BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

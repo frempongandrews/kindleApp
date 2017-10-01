@@ -6,18 +6,20 @@
 //  Copyright © 2017 Andrews Frempong. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Book {
     var title: String
     var author: String
     var pages: [Page]
+    var coverImage: UIImage
     
     
-    init(title: String, author: String, pages:[Page]) {
+    init(title: String, author: String, pages:[Page], coverImage: UIImage) {
         self.title = title
         self.author = author
         self.pages = pages
+        self.coverImage = coverImage
     }
 }//end Book class
 
