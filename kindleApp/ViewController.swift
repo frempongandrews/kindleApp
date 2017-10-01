@@ -24,7 +24,7 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CustomBookCell
-        //cell.backgroundColor = .green
+        
         cell.selectionStyle = .none
         
         if let books = self.booksArr {
@@ -45,7 +45,9 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print("hello")
-        let bookPagerCollectionViewController = BookPagerCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        let layout = UICollectionViewFlowLayout()
+
+        let bookPagerCollectionViewController = BookPagerCollectionViewController(collectionViewLayout: layout)
         let navigationController = UINavigationController(rootViewController: bookPagerCollectionViewController)
         present(navigationController, animated: true, completion: nil)
     }
