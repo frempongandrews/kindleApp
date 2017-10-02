@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B810D0D51F8152A0000B7BF5 /* BookPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810D0D41F8152A0000B7BF5 /* BookPagerViewController.swift */; };
+		B810D0D71F81B9B5000B7BF5 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810D0D61F81B9B5000B7BF5 /* PageCell.swift */; };
 		B8AE73A51F6D005B001328BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE73A41F6D005B001328BA /* AppDelegate.swift */; };
 		B8AE73A71F6D005B001328BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE73A61F6D005B001328BA /* ViewController.swift */; };
-		B8AE73AA1F6D005B001328BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8AE73A81F6D005B001328BA /* Main.storyboard */; };
 		B8AE73AC1F6D005B001328BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8AE73AB1F6D005B001328BA /* Assets.xcassets */; };
 		B8AE73AF1F6D005B001328BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8AE73AD1F6D005B001328BA /* LaunchScreen.storyboard */; };
 		B8AE73B71F6D7944001328BA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AE73B61F6D7944001328BA /* Models.swift */; };
@@ -18,10 +18,10 @@
 
 /* Begin PBXFileReference section */
 		B810D0D41F8152A0000B7BF5 /* BookPagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookPagerViewController.swift; sourceTree = "<group>"; };
+		B810D0D61F81B9B5000B7BF5 /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		B8AE73A11F6D005B001328BA /* kindleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kindleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8AE73A41F6D005B001328BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8AE73A61F6D005B001328BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B8AE73A91F6D005B001328BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8AE73AB1F6D005B001328BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8AE73AE1F6D005B001328BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8AE73B01F6D005B001328BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,12 +60,12 @@
 			children = (
 				B8AE73A41F6D005B001328BA /* AppDelegate.swift */,
 				B8AE73A61F6D005B001328BA /* ViewController.swift */,
-				B8AE73A81F6D005B001328BA /* Main.storyboard */,
 				B8AE73AB1F6D005B001328BA /* Assets.xcassets */,
 				B8AE73AD1F6D005B001328BA /* LaunchScreen.storyboard */,
 				B8AE73B01F6D005B001328BA /* Info.plist */,
 				B8AE73B61F6D7944001328BA /* Models.swift */,
 				B810D0D41F8152A0000B7BF5 /* BookPagerViewController.swift */,
+				B810D0D61F81B9B5000B7BF5 /* PageCell.swift */,
 			);
 			path = kindleApp;
 			sourceTree = "<group>";
@@ -131,7 +131,6 @@
 			files = (
 				B8AE73AF1F6D005B001328BA /* LaunchScreen.storyboard in Resources */,
 				B8AE73AC1F6D005B001328BA /* Assets.xcassets in Resources */,
-				B8AE73AA1F6D005B001328BA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8AE73B71F6D7944001328BA /* Models.swift in Sources */,
+				B810D0D71F81B9B5000B7BF5 /* PageCell.swift in Sources */,
 				B810D0D51F8152A0000B7BF5 /* BookPagerViewController.swift in Sources */,
 				B8AE73A71F6D005B001328BA /* ViewController.swift in Sources */,
 				B8AE73A51F6D005B001328BA /* AppDelegate.swift in Sources */,
@@ -152,14 +152,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B8AE73A81F6D005B001328BA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B8AE73A91F6D005B001328BA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B8AE73AD1F6D005B001328BA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

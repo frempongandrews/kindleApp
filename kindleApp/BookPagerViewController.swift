@@ -23,19 +23,17 @@ class BookPagerCollectionViewController: UICollectionViewController, UICollectio
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(handleCloseBook))
         
         //registering cell
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView?.register(PageCell.self, forCellWithReuseIdentifier: cellId)
         
         
-        //<!-- ADD ANKI -->
-        //access collectionViewLayout parameter
+        
+        //need to access collectionViewLayout parameter
         
         //!!NB: downcast collectionViewLayout parameter to UICollectionViewFlowLayout
         //otherwise there is no acces to scrollDirection property on the layout below
         let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
         layout?.scrollDirection = .horizontal
         layout?.minimumLineSpacing = 0
-        //<!-- End of Anki -->
-        
         collectionView?.isPagingEnabled = true
         
     }
@@ -51,15 +49,17 @@ class BookPagerCollectionViewController: UICollectionViewController, UICollectio
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let pageCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PageCell
         
-        if indexPath.item % 2 == 0 {
-            cell.backgroundColor = .gray
-        } else {
-            cell.backgroundColor = .red
-        }
+        pageCell.pageContentLabel.text = "SOME DUMMY TEXT SOME DUMMY TEXT SOME DUMMY TEXT SOME DUMMY TEXT SOME DUMMY TEXT SOME DUMMY TEXT"
         
-        return cell
+//        if indexPath.item % 2 == 0 {
+//            cell.backgroundColor = .gray
+//        } else {
+//            cell.backgroundColor = .red
+//        }
+        
+        return pageCell
         
     }
     
