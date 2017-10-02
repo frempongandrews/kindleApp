@@ -29,9 +29,9 @@ class ViewController: UITableViewController {
         
         if let books = self.booksArr {
            let book = books[indexPath.row]
-            cell.bookTitleLabel.text = book.title
-            cell.bookCoverImageView.image = book.coverImage
-            cell.bookAuthorLabel.text = book.author
+            
+            //Go to Bookcell... BookCell knows what to render
+            cell.book = book
         }
         
         
@@ -92,11 +92,24 @@ class ViewController: UITableViewController {
 //<-- --------------------------------------------------- -->
 
 
-//<!--  Custom cell class-->
+//<!--  Custom Book cell class-->
 
 class CustomBookCell: UITableViewCell {
     
-    let bookCoverImageView: UIImageView = {
+    //Encapsulation
+    //when the book property of the cell is set, set also its imageview.image and labels.text
+    //to what I specify
+    
+    var book: Book? {
+        didSet{
+            bookCoverImageView.image = book?.coverImage
+            bookTitleLabel.text = book?.title
+            bookAuthorLabel.text = book?.author
+        }
+    }
+    
+    
+    private let bookCoverImageView: UIImageView = {
         let imageView = UIImageView()
         //imageView.backgroundColor = .red
         imageView.contentMode = .scaleAspectFit
@@ -106,7 +119,7 @@ class CustomBookCell: UITableViewCell {
         return imageView
     }()
     
-    let bookTitleLabel: UILabel = {
+    private let bookTitleLabel: UILabel = {
         let label = UILabel()
         
         //removing frame layout
@@ -115,7 +128,7 @@ class CustomBookCell: UITableViewCell {
         
     }()
     
-    let bookAuthorLabel: UILabel = {
+    private let bookAuthorLabel: UILabel = {
         let label = UILabel()
         
         
