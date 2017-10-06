@@ -21,6 +21,35 @@ class Book {
         self.pages = pages
         self.coverImage = coverImage
     }
+    
+    
+    //secondary constructor for fetching books
+    
+    init (dictionary: [String: Any]) {
+        
+        self.title = dictionary["title"] as? String ?? ""
+        self.author = dictionary["author"] as? String ?? ""
+        self.pages = [Page]()
+        
+        if let pages = dictionary["pages"] as? [[String: Any]] {
+            
+            for page in pages {
+                
+                if let bookPageContent = page["text"] as? String {
+                    let bookPages = Page(number: 1, text: bookPageContent)
+                    
+                    //setting pages
+                    self.pages.append(bookPages)
+                }
+                
+            }//<!-- end for loop -->
+            
+        }// <!-- end if let pages -->
+        
+        self.coverImage = #imageLiteral(resourceName: "steve_jobs")
+    }
+    
+    
 }//end Book class
 
 class Page {

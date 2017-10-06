@@ -31,8 +31,9 @@ class ViewController: UITableViewController {
            let book = books[indexPath.row]
             
             //Go to Bookcell... BookCell knows what to render
-            cell.book = book
+           cell.book = book
         }
+        
         
         
         
@@ -61,29 +62,84 @@ class ViewController: UITableViewController {
         
         tableView.register(CustomBookCell.self, forCellReuseIdentifier: cellId)
         
-        setupBooks()
+        //setupBooks()
+        
+        fetchBooks()
         
         
     } //end viewDidLoad
     
-    func setupBooks () {
-        
-        let book1 = Book(title: "Steve Jobs", author: "Walter Isaacson", pages: [], coverImage: #imageLiteral(resourceName: "steve_jobs"))
-        
-        let book1Page1 = Page(number: 1, text: "This is the first page of book1")
-        book1.pages.append(book1Page1)
-        
-        //print(book1.pages[0].number ,book1.pages[0].text)
-        
-        let book2 = Book(title: "Bill Gates: A Biography", author: "Micheal Becraft", pages: [], coverImage: #imageLiteral(resourceName: "bill_gates"))
-        book2.pages.append(Page(number: 1, text: "This is the first page of book 2"))
-        book2.pages.append(Page(number: 2, text: "This is the second page of book2"))
+    func fetchBooks () {
+        print("Loading books...")
         
         
-        //list of books
-        self.booksArr = [book1, book2]
+        let url = "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/kindle.json"
+        let requestedUrl = URL(string: url)
+        
+        guard let unwrappedRequestedUrl = requestedUrl else { return }
+        let task = URLSession.shared.dataTask(with: unwrappedRequestedUrl) {(data, response, error) in
+            
+            if error == nil {
+                
+                self.booksArr = []
+                
+                do {
+                    
+                    guard let unwrappedData = data else { return }
+                    
+                    let json = try JSONSerialization.jsonObject(with: unwrappedData, options: .mutableContainers) as? [[String: Any]]
+                    
+                    guard let unwrappedJson = json else { return }
+                    
+                    for bookDictionary in unwrappedJson {
+                
+                            
+                            //define book and push to booksArr
+                        
+                        let book = Book(dictionary: bookDictionary)
+                        self.booksArr?.append(book)
+                        
+                    }
+                    
+                    //putting books on main thread
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    
+                   
+                    
+                    
+                } catch let jsonError {
+                    print("Error fetching Books...",jsonError)
+                }
+                
+            }
+            
+        }// <!-- end of task-->
+        
+        task.resume()
         
     }
+    
+//    func setupBooks () {
+//        
+//        let book1 = Book(title: "Steve Jobs", author: "Walter Isaacson", pages: [], coverImage: #imageLiteral(resourceName: "steve_jobs"))
+//        
+//        let book1Page1 = Page(number: 1, text: "This is the first page of book1")
+//        book1.pages.append(book1Page1)
+//        
+//        //print(book1.pages[0].number ,book1.pages[0].text)
+//        
+//        let book2 = Book(title: "Bill Gates: A Biography", author: "Micheal Becraft", pages: [], coverImage: #imageLiteral(resourceName: "bill_gates"))
+//        book2.pages.append(Page(number: 1, text: "This is the first page of book 2"))
+//        book2.pages.append(Page(number: 2, text: "This is the second page of book2"))
+//        
+//        
+//        //list of books
+//        self.booksArr = [book1, book2]
+//        
+//    }
 
 
 } //<-- End of books table view controller -->
@@ -101,12 +157,13 @@ class CustomBookCell: UITableViewCell {
     //to what I specify
     
     var book: Book? {
-        didSet{
+        didSet {
             bookCoverImageView.image = book?.coverImage
             bookTitleLabel.text = book?.title
             bookAuthorLabel.text = book?.author
         }
     }
+
     
     
     private let bookCoverImageView: UIImageView = {
